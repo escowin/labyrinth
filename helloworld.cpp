@@ -1,41 +1,42 @@
 // Loads header file for basic input & output operations
 #include <iostream>
 
-int main()
-{
-    // Variables | Declarations & assignments
+// namespaces provides a solution for preventing nam conflicts in large projects
+namespace first {
+    int x = 1;
+}
 
-    // Data types
-    // integer | whole numbers
-    int x;
-    x = 5;
+namespace second {
+    int x = 2;
+}
 
-    int y = 10;
-    int sum = x + y;
-    int year = 2024;
+int main() {
+    using namespace first; 
 
-    // double | decimals
-    double ver = 1.01;
+    // Variables | Data type declarations & assignments
+    int year = 2024; // whole numbers
+    double ver = 1.01; // decimals
+    bool student = true; // true or false
+    char grade = 'A'; // single character, uses single quotes
+    
+    const double PI = 3.14159; // const locks value, use all caps for convention
+    double r = 10;
+    double circ = 2 * PI * r;
 
-    // char | single character, uses single quotes
-    char grade = 'A';
+    // int x = 0;
 
-    // boolean | true or false
-    bool student = true;
-
-    // string | multi character text, uses double quotes
+    // string | multi character text object, uses double quotes
     std::string appName = "Labyrinth";
     std::string name = "Edwin Escobar";
 
-    // Multi-line terminal message
-    // - standard :: character output << "string" << end line or '\n'; repeat
+    // Terminal messages
     std::cout << appName << " v" << ver << std::endl;
     std::cout << "\u00A9 " << year << " " << name << '\n';
 
-    // Displays variable
-    std::cout << x << '\n';
-    std::cout << y << '\n';
-    std::cout << sum << '\n';
+    std::cout << "circle circumference: " << circ << '\n';
+
+    // std::cout << first::x; // using scope resolution operator `::`
+    std::cout << x;
 
     // Return 0 indicates no errors
     return 0;
