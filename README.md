@@ -1,2 +1,2 @@
-# snek
-TBD C++ program
+# labyrinth
+C++ playground
