@@ -1,5 +1,13 @@
 // Loads header file for basic input & output operations
 #include <iostream>
+#include <vector>
+
+// type def convention ends in `_t`
+// typedef std::vector<std::pair<std::string, int>> pairlist_t
+// typedef std::string text_t;
+
+// more common than typedef since its more suitable for templates
+using text_t = std::string;
 
 // namespaces provides a solution for preventing nam conflicts in large projects
 namespace first {
@@ -11,7 +19,9 @@ namespace second {
 }
 
 int main() {
+    // scope resolution operator `::`
     using namespace first; 
+    using std::cout;
 
     // Variables | Data type declarations & assignments
     int year = 2024; // whole numbers
@@ -26,17 +36,14 @@ int main() {
     // int x = 0;
 
     // string | multi character text object, uses double quotes
-    std::string appName = "Labyrinth";
-    std::string name = "Edwin Escobar";
+    text_t appName = "Labyrinth";
+    text_t name = "Edwin Escobar";
 
     // Terminal messages
-    std::cout << appName << " v" << ver << std::endl;
-    std::cout << "\u00A9 " << year << " " << name << '\n';
-
-    std::cout << "circle circumference: " << circ << '\n';
-
-    // std::cout << first::x; // using scope resolution operator `::`
-    std::cout << x;
+    cout << appName << " v" << ver << std::endl;
+    cout << "\u00A9 " << year << " " << name << '\n';
+    cout << "circle circumference: " << circ << '\n';
+    cout << x;
 
     // Return 0 indicates no errors
     return 0;
