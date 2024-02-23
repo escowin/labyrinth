@@ -12,10 +12,13 @@ int main()
 {
     // App details | Data type declarations & assignments
     int year = 2024;               // whole number
-    double ver = 1.03;             // decimal
+    double ver = 1.04;             // decimal
     text_t appName = "labyrinth";  // string
     text_t name = "Edwin Escobar"; // string
     text_t subhead = "hypotenuse-calculator";
+
+    // User details
+    int age;
 
     // Hypotenuse calculator | c = √(a^2 + b^2)
     double a;
@@ -25,9 +28,25 @@ int main()
     // Terminal greeting
     cout << appName << " v" << ver << std::endl;
     cout << "\u00A9 " << year << " " << name << "\n\n";
-    cout << subhead << '\n';
+    // cout << subhead << '\n';
 
-    // Terminal prompt
+    // Terminal prompts
+    cout << "Enter you age: ";
+    cin >> age;
+
+    // Validation
+    if (age >= 18) {
+        cout << "Welcome to the " << subhead << '\n';
+    }
+    else if (age < 0) {
+        cout << "You don't exist yet" << '\n';
+        return 0;
+    }
+    else {
+        cout << "You're too young to use the " << subhead << '\n';
+        return 0;
+    }
+
     cout << "Enter side A: ";
     cin >> a;
 
