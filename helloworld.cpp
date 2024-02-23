@@ -11,52 +11,57 @@ using std::cout;
 int main()
 {
     // App details | Data type declarations & assignments
-    int year = 2024;               // whole number
-    double ver = 1.04;             // decimal
-    text_t appName = "labyrinth";  // string
-    text_t name = "Edwin Escobar"; // string
-    text_t subhead = "hypotenuse-calculator";
+    int year = 2024;
+    double ver = 1.05;
+    text_t appName = "labyrinth";
+    text_t name = "Edwin Escobar";
+    text_t subhead = "calculator";
 
-    // User details
-    int age;
-
-    // Hypotenuse calculator | c = √(a^2 + b^2)
-    double a;
-    double b;
-    double c;
+    // Calculator variables
+    char op;
+    double num1;
+    double num2;
+    double result;
 
     // Terminal greeting
     cout << appName << " v" << ver << std::endl;
     cout << "\u00A9 " << year << " " << name << "\n\n";
-    // cout << subhead << '\n';
+    cout << "********** " << subhead << " **********\n\n";
 
     // Terminal prompts
-    cout << "Enter you age: ";
-    cin >> age;
+    cout << "Enter an operation (+ - * /): ";
+    cin >> op;
 
-    // Validation
-    if (age >= 18) {
-        cout << "Welcome to the " << subhead << '\n';
+    cout << "Enter #1: ";
+    cin >> num1;
+
+    cout << "Enter #2: ";
+    cin >> num2;
+
+    switch (op)
+    {
+    case '+':
+        result = num1 + num2;
+        cout << "result: " << result << '\n';
+        break;
+    case '-':
+        result = num1 - num2;
+        cout << "result: " << result << '\n';
+        break;
+    case '*':
+        result = num1 * num2;
+        cout << "result: " << result << '\n';
+        break;
+    case '/':
+        result = num1 / num2;
+        cout << "result: " << result << '\n';
+        break;
+    default:
+        cout << "invalid operator\n";
+        break;
     }
-    else if (age < 0) {
-        cout << "You don't exist yet" << '\n';
-        return 0;
-    }
-    else {
-        cout << "You're too young to use the " << subhead << '\n';
-        return 0;
-    }
 
-    cout << "Enter side A: ";
-    cin >> a;
-
-    cout << "Enter side B: ";
-    cin >> b;
-
-    // Calculates solution with provided user input, displaying the solution in the terminal
-    c = sqrt(pow(a, 2) + pow(b, 2));
-
-    cout << "Side C: " << c;
+    cout << "\n********************************\n";
 
     return 0;
 }
