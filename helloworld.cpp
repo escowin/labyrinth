@@ -61,6 +61,9 @@ int main()
         break;
     }
 
+    // Truncates value to display conditional message
+    (int)result % 2 == 1 ? cout << "result is odd " : cout << "result is even \n";
+
     cout << "\n********************************\n";
 
     return 0;
