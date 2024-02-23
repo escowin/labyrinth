@@ -6,47 +6,37 @@
 // typedef std::string text_t;
 using text_t = std::string; // more suitable than typedef for templates
 
-// namespaces provides a solution for preventing nam conflicts in large projects
-namespace first
-{
-    int x = 1;
-}
-
 int main()
 {
-    // using namespace first;
     using std::cin;
     using std::cout;
 
-    // Variables | Data type declarations & assignments
-    int year = 2024;     // whole numbers
-    double ver = 1.01;   // decimals
-    bool student = true; // true or false
-    char grade = 'A';    // single character, uses single quotes
+    // App variables | Data type declarations & assignments
+    int year = 2024;     // whole number
+    double ver = 1.02;   // decimal
+    text_t appName = "Labyrinth"; // string
+    text_t name = "Edwin Escobar"; // string
+    text_t subhead = "Hypotenuse calculator";
 
-    // string | multi character text object, uses double quotes
-    text_t appName = "Labyrinth";
-    text_t name = "Edwin Escobar";
-
-    // Terminal messages
-    cout << appName << " v" << ver << std::endl;
+    // Terminal greeting
+    cout << appName << " v" << ver << " | " << subhead << std::endl;
     cout << "\u00A9 " << year << " " << name << "\n\n";
+    
+    // Hypotenuse calculator | c = √(a^2 + b2)
+    double a;
+    double b;
+    double c;
 
-    // Arithmetic | https://cplusplus.com/reference/cmath/
-    double x = 3.99;
-    double y = 4;
-    double z;
+    // Terminal prompt
+    cout << "Enter side A: ";
+    cin >> a;
 
-    // z = std::max(x, y);
-    // z = std::min(x, y);
-    // z = pow(2, 4); // power
-    // z = sqrt(9);   // square root
-    // z = abs(-3);   // absolute
-    // z = round(x);  // round
-    // z = ceil(x);   // round up
-    z = floor(x); // round down
+    cout << "Enter side B: ";
+    cin >> b;
 
-    cout << z;
+    c = sqrt(pow(a, 2) + pow(b, 2));
+
+    cout << "Side C: " << c;
 
     return 0;
 }
