@@ -15,13 +15,11 @@ int main()
     double ver = 1.05;
     text_t appName = "labyrinth";
     text_t name = "Edwin Escobar";
-    text_t subhead = "calculator";
+    text_t subhead = "logical operators";
 
-    // Calculator variables
-    char op;
-    double num1;
-    double num2;
-    double result;
+    // Variables
+    int temp;
+    bool sunny = true;
 
     // Terminal greeting
     cout << appName << " v" << ver << std::endl;
@@ -29,42 +27,14 @@ int main()
     cout << "********** " << subhead << " **********\n\n";
 
     // Terminal prompts
-    cout << "Enter an operation (+ - * /): ";
-    cin >> op;
+    cout << "Enter temp: ";
+    cin >> temp;
 
-    cout << "Enter #1: ";
-    cin >> num1;
+    (temp <= 0 || temp >= 30) ? cout << "temp is bad\n" : cout << "temp is good\n";
 
-    cout << "Enter #2: ";
-    cin >> num2;
+    !sunny ? cout << "it is sunny" : cout << "it is cloudy";
 
-    switch (op)
-    {
-    case '+':
-        result = num1 + num2;
-        cout << "result: " << result << '\n';
-        break;
-    case '-':
-        result = num1 - num2;
-        cout << "result: " << result << '\n';
-        break;
-    case '*':
-        result = num1 * num2;
-        cout << "result: " << result << '\n';
-        break;
-    case '/':
-        result = num1 / num2;
-        cout << "result: " << result << '\n';
-        break;
-    default:
-        cout << "invalid operator\n";
-        break;
-    }
-
-    // Truncates value to display conditional message
-    (int)result % 2 == 1 ? cout << "result is odd " : cout << "result is even \n";
-
-    cout << "\n********************************\n";
+    cout << "\n\n********************************\n";
 
     return 0;
 }
