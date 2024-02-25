@@ -16,9 +16,9 @@ int main()
 {
     // Variables | Data type declarations & assignments
     int year = 2024;
-    double ver = 1.09;
+    double ver = 1.10;
     text_t appName = "labyrinth";
-    text_t subhead = "for loop";
+    text_t subhead = "loop w/ continue";
     int number;
 
     // Terminal greeting
@@ -35,6 +35,11 @@ int main()
 
     for (int i = number; i >= 1; i--)
     {
+        // Skips culturally unlucky numbers for auspicious countdowns
+        if (i == 13 || i == 4)
+        {
+            continue;
+        }
         cout << i << '\n';
     }
 
