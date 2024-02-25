@@ -14,13 +14,12 @@ using std::cout;
 
 int main()
 {
-    // App details | Data type declarations & assignments
+    // Variables | Data type declarations & assignments
     int year = 2024;
-    double ver = 1.07;
+    double ver = 1.08;
     text_t appName = "labyrinth";
-    text_t subhead = "while loop";
-
-    text_t name;
+    text_t subhead = "do while loop";
+    int number;
 
     // Terminal greeting
     cout << appName << " v" << ver << std::endl;
@@ -28,13 +27,14 @@ int main()
     cout << "********** " << subhead << " **********\n\n";
 
     // Terminal prompts
-    while (name.empty())
+    // do while loop = do some block of code first, then repeat again if condition is true
+    do
     {
-        cout << "Enter a name: ";
-        std::getline(cin, name);
-    }
+        cout << "Enter a positive number: ";
+        cin >> number;
+    } while (number < 0);
 
-    cout << "Hello, " << name;
+    cout << "The number is: " << number;
 
     cout << "\n\n********************************\n";
 
