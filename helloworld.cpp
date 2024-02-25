@@ -16,9 +16,9 @@ int main()
 {
     // Variables | Data type declarations & assignments
     int year = 2024;
-    double ver = 1.10;
+    double ver = 1.11;
     text_t appName = "labyrinth";
-    text_t subhead = "loop w/ continue";
+    text_t subhead = "nested loop w/ continue";
     int number;
 
     // Terminal greeting
@@ -40,6 +40,13 @@ int main()
         {
             continue;
         }
+
+        // Prepends the `.` symbol with the parent index value
+        for (int j = i; j >= 1; j--)
+        {
+            cout << '.';
+        }
+
         cout << i << '\n';
     }
 
