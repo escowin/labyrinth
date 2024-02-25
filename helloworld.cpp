@@ -16,9 +16,9 @@ int main()
 {
     // Variables | Data type declarations & assignments
     int year = 2024;
-    double ver = 1.08;
+    double ver = 1.09;
     text_t appName = "labyrinth";
-    text_t subhead = "do while loop";
+    text_t subhead = "for loop";
     int number;
 
     // Terminal greeting
@@ -27,15 +27,18 @@ int main()
     cout << "********** " << subhead << " **********\n\n";
 
     // Terminal prompts
-    // do while loop = do some block of code first, then repeat again if condition is true
     do
     {
-        cout << "Enter a positive number: ";
+        cout << "Enter a number to start the New year countdown: ";
         cin >> number;
     } while (number < 0);
 
-    cout << "The number is: " << number;
+    for (int i = number; i >= 1; i--)
+    {
+        cout << i << '\n';
+    }
 
+    cout << "happy new year!\n";
     cout << "\n\n********************************\n";
 
     return 0;
