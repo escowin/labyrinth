@@ -1,6 +1,7 @@
 // Loads header file for basic input & output operations
 #include <iostream>
 #include <cmath>
+#include <ctime>
 
 // type def convention ends in `_t`.
 // typedef std::string text_t;
@@ -16,8 +17,8 @@ int main()
 {
     // Variables | Data type declarations & assignments
     int year = 2024;
-    double ver = 1.11;
-    text_t appName = "labyrinth";
+    double ver = 1.12;
+    text_t appName = "white-raspberry";
     text_t subhead = "nested loop w/ continue";
     int number;
 
