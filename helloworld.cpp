@@ -19,8 +19,16 @@ int main()
     int year = 2024;
     double ver = 1.12;
     text_t appName = "white-raspberry";
-    text_t subhead = "nested loop w/ continue";
-    int number;
+    text_t subhead = "random number generator";
+    // int dice;
+
+    // pseudo-random | initialize random fx, seed w/ current calendar time
+    srand(time(NULL));
+
+    // Returns a random number between 1-6 with arithemetic
+    int num1 = (rand() % 6) + 1;
+    int num2 = (rand() % 6) + 1;
+    int num3 = (rand() % 6) + 1;
 
     // Terminal greeting
     cout << appName << " v" << ver << std::endl;
@@ -28,31 +36,10 @@ int main()
     cout << "********** " << subhead << " **********\n\n";
 
     // Terminal prompts
-    do
-    {
-        cout << "Enter a number to start the New year countdown: ";
-        cin >> number;
-    } while (number < 0);
+    cout << "rolling the dice: ";
+    cout << num1 << " | " << num2 << " | " << num3;
 
-    for (int i = number; i >= 1; i--)
-    {
-        // Skips culturally unlucky numbers for auspicious countdowns
-        if (i == 13 || i == 4)
-        {
-            continue;
-        }
-
-        // Prepends the `.` symbol with the parent index value
-        for (int j = i; j >= 1; j--)
-        {
-            cout << '.';
-        }
-
-        cout << i << '\n';
-    }
-
-    cout << "happy new year!\n";
-    cout << "\n\n********************************\n";
+    cout << "\n\n********** " << subhead << " **********\n\n";
 
     return 0;
 }
