@@ -17,9 +17,9 @@ int main()
 {
     // Variables | Data type declarations & assignments
     int year = 2024;
-    double ver = 1.14;
+    double ver = 1.15;
     text_t appName = "white-raspberry";
-    text_t subhead = "number guessing game";
+    text_t subhead = "user-defined functions";
 
     // Returns a random number between 1-5 with arithemetic
     int num;
@@ -36,26 +36,15 @@ int main()
     cout << "********** " << subhead << " **********\n\n";
 
     // Terminal prompts
-    do
-    {
-        cout << "Guess a number between (1-100): ";
-        cin >> guess;
-        tries++;
 
-        if (guess > num)
-        {
-            cout << "Too high!\n";
-        }
-        else if (guess < num)
-        {
-            cout << "Too low!\n";
-        }
-        else
-        {
-            cout << "Correct! # of tries: " << tries << '\n';
-        }
-    } while (guess != num);
-    cout << "\n\n********** " << subhead << " **********\n\n";
+
+    // Terminal fin
+    cout << "\n\n***********";
+    for (int i = 0; i < subhead.length(); i++)
+    {
+        cout << "*";
+    }
+    cout << "***********\n\n";
 
     return 0;
 }
