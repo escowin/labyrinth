@@ -13,6 +13,10 @@ using std::cout;
 // compile  | g++ -o program_name source_file.cpp
 // invoke   | ./program_name.exe
 
+// Function declarations | parameters list data type followed by variable name
+void guessNumber();
+void terminalFin(int length);
+
 int main()
 {
     // Variables | Data type declarations & assignments
@@ -21,6 +25,25 @@ int main()
     text_t appName = "white-raspberry";
     text_t subhead = "user-defined functions";
 
+    // Terminal greeting
+    cout << appName << " v" << ver << std::endl;
+    cout << "\u00A9 " << year << " Edwin Escobar\n\n";
+    cout << "********** " << subhead << " **********\n\n";
+
+    // Terminal prompts
+    guessNumber();
+
+    // Terminal fin
+    cout << "\n\n***********";
+    terminalFin(subhead.length());
+    cout << "***********\n\n";
+
+    return 0;
+}
+
+// Functions definitions | parameters list data type followed by variable name
+void guessNumber()
+{
     // Returns a random number between 1-5 with arithemetic
     int num;
     int guess;
@@ -30,21 +53,32 @@ int main()
     srand(time(NULL));
     num = (rand() % 100) + 1;
 
-    // Terminal greeting
-    cout << appName << " v" << ver << std::endl;
-    cout << "\u00A9 " << year << " Edwin Escobar\n\n";
-    cout << "********** " << subhead << " **********\n\n";
-
     // Terminal prompts
+    do
+    {
+        cout << "Guess the number: ";
+        cin >> guess;
+        if (guess > num)
+        {
+            cout << "Too high of a guess!\n";
+            tries++;
+        }
+        else if (guess < num)
+        {
+            cout << "Too low of a guess!\n";
+            tries++;
+        }
+        else
+        {
+            cout << "Correct! # of tries: " << tries;
+        }
+    } while (guess != num);
+}
 
-
-    // Terminal fin
-    cout << "\n\n***********";
-    for (int i = 0; i < subhead.length(); i++)
+void terminalFin(int length)
+{
+    for (int i = 0; i < length; i++)
     {
         cout << "*";
     }
-    cout << "***********\n\n";
-
-    return 0;
 }
