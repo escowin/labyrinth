@@ -17,7 +17,7 @@ int main()
 {
     // Variables | Data type declarations & assignments
     int year = 2024;
-    double ver = 1.13;
+    double ver = 1.14;
     text_t appName = "white-raspberry";
     text_t subhead = "number guessing game";
 
