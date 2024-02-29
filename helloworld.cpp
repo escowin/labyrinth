@@ -13,8 +13,9 @@ using std::cout;
 // compile  | g++ -o program_name source_file.cpp
 // invoke   | ./program_name.exe
 
-// Function declarations | parameters list data type followed by variable name
-void guessNumber();
+// User declared functions | parameters list data type followed by variable name
+double square(double length);
+double cube(double length);
 void terminalFin(int length);
 
 int main()
@@ -23,7 +24,10 @@ int main()
     int year = 2024;
     double ver = 1.15;
     text_t appName = "white-raspberry";
-    text_t subhead = "user-defined functions";
+    text_t subhead = "geometry-calculator";
+    double length;
+    double area;
+    double volume;
 
     // Terminal greeting
     cout << appName << " v" << ver << std::endl;
@@ -31,7 +35,14 @@ int main()
     cout << "********** " << subhead << " **********\n\n";
 
     // Terminal prompts
-    guessNumber();
+    cout << "Enter the length of the square/cube: ";
+    cin >> length;
+
+    area = square(length);
+    volume = cube(length);
+
+    cout << "2D Area: " << area << "cm^2\n";
+    cout << "3D Volume: " << volume << "cm^3\n";
 
     // Terminal fin
     cout << "\n\n***********";
@@ -41,38 +52,15 @@ int main()
     return 0;
 }
 
-// Functions definitions | parameters list data type followed by variable name
-void guessNumber()
+// User defined functions
+double square(double length)
 {
-    // Returns a random number between 1-5 with arithemetic
-    int num;
-    int guess;
-    int tries;
+    return pow(length, 2);
+}
 
-    // pseudo-random | uses the current time to generate random numbers
-    srand(time(NULL));
-    num = (rand() % 100) + 1;
-
-    // Terminal prompts
-    do
-    {
-        cout << "Guess the number: ";
-        cin >> guess;
-        if (guess > num)
-        {
-            cout << "Too high of a guess!\n";
-            tries++;
-        }
-        else if (guess < num)
-        {
-            cout << "Too low of a guess!\n";
-            tries++;
-        }
-        else
-        {
-            cout << "Correct! # of tries: " << tries;
-        }
-    } while (guess != num);
+double cube(double length)
+{
+    return pow(length, 3);
 }
 
 void terminalFin(int length)
