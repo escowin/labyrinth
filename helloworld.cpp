@@ -14,118 +14,48 @@ using string_t = std::string; // more suitable than typedef for templates
 using std::cin;
 using std::cout;
 
-// User declared functions | parameters list data type followed by variable name
+// User-declared functions
 int currentYear();
-void terminalStart(string_t subhead);
+void terminalStart(string_t subhead, double ver);
 void terminalFin(int length);
-void showBalance(double balance);
-double deposit();
-double withdraw(double balance);
+
+// Game-specific functions
+char getUserChoice();
+char getComputerChoice();
+void showChoice(char choice);
+void chooseWinner(char player, char cpu);
 
 int main()
 {
-    // Variables | Data type declarations & assignments
-    string_t subhead = "bank-transcator";
-    double balance = 0;
-    int choice = 0;
+    // App variables
+    double ver = 1.20;
+    string_t subhead = "rock-paper-scissors";
+
+    // Game variables
+    char player;
+    char cpu;
+    char choice;
 
     // Terminal greeting
-    terminalStart(subhead);
+    terminalStart(subhead, ver);
 
     // Terminal prompts
-    do
-    {
-        cout << "*********************\n";
-        cout << "Select a menu option:\n";
-        cout << "*********************\n";
-        cout << "1. Show balance\n";
-        cout << "2. Deposit money\n";
-        cout << "3. Withdraw money\n";
-        cout << "4. Exit\n";
-        cin >> choice;
-
-        // Clears input buffer, which prevents program from breaking if user enters an invalid value
-        cin.clear();
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-        switch (choice)
-        {
-        case 1:
-            showBalance(balance);
-            break;
-        case 2:
-            balance += deposit();
-            showBalance(balance);
-
-            break;
-        case 3:
-            balance -= withdraw(balance);
-            showBalance(balance);
-
-            break;
-        case 4:
-            cout << "Goodbye!\n";
-            break;
-        default:
-            cout << "Invalid choice\n";
-        }
-
-    } while (choice != 4);
 
     // Terminal fin
     terminalFin(subhead.length());
     return 0;
 }
 
-// Displays current balance value
-void showBalance(double balance)
+char getUserChoice()
 {
-    // setprecision() shows up to two values after the decimal point
-    cout << "Your balance is: $" << std::setprecision(2) << std::fixed << balance << "\n\n";
+    return 0;
 }
-
-// Captures user input
-double deposit()
+char getComputerChoice()
 {
-    double amount = 0;
-
-    cout << "Enter deposit amount: ";
-    cin >> amount;
-
-    if (amount > 0)
-    {
-        return amount;
-    }
-    else
-    {
-        cout << "Cannot deposit a negative amount of money.\n";
-        return 0;
-    }
+    return 0;
 }
-
-double withdraw(double balance)
-{
-    double amount = 0;
-
-    cout << "Enter withdrawal amount: ";
-    cin >> amount;
-
-    // Safeguards against negative withdrawals & overdrafts
-    if (amount < 0)
-    {
-        cout << "Cannot withdraw a negative amount of money.\n";
-        return 0;
-    }
-    else if (amount > balance)
-    {
-        cout << "This bank does not allow overdrafts.\n";
-        return 0;
-    }
-    else
-    {
-        return amount;
-    }
-}
+void showChoice(char choice) {}
+void chooseWinner(char player, char cpu) {}
 
 // Returns the current year
 int currentYear()
@@ -140,13 +70,12 @@ int currentYear()
 }
 
 // Greets user with app details in the terminal
-void terminalStart(string_t subhead)
+void terminalStart(string_t subhead, double ver)
 {
     int year = currentYear();
-    double ver = 1.19;
     string_t appName = "white-raspberry";
 
-    cout << appName << " v" << ver << std::endl;
+    cout << appName << " v0." << std::setprecision(2) << std::fixed << ver << std::endl;
     cout << "\u00A9 " << year << " Edwin Escobar\n\n";
     cout << "********** " << subhead << " **********\n\n";
 }
