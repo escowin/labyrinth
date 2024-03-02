@@ -40,6 +40,7 @@ int main()
     terminalStart(subhead, ver);
 
     // Terminal prompts
+    player = getUserChoice();
 
     // Terminal fin
     terminalFin(subhead.length());
@@ -48,6 +49,20 @@ int main()
 
 char getUserChoice()
 {
+    char choice;
+
+    do
+    {
+        cout << "*****************\n";
+        cout << "Select your move:\n";
+        cout << "*****************\n";
+        cout << "r. rock\n";
+        cout << "p. paper\n";
+        cout << "s. scissors\n";
+        cin >> choice;
+        cout << "you selected: " << choice << '\n';
+    } while (choice != 'r' && choice != 'p' && choice != 's');
+
     return 0;
 }
 char getComputerChoice()
