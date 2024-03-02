@@ -34,13 +34,14 @@ int main()
     // Game variables
     char player;
     char cpu;
-    char choice;
 
     // Terminal greeting
     terminalStart(subhead, ver);
 
     // Terminal prompts
     player = getUserChoice();
+    cout << "You selected: ";
+    showChoice(player);
 
     // Terminal fin
     terminalFin(subhead.length());
@@ -60,16 +61,32 @@ char getUserChoice()
         cout << "p. paper\n";
         cout << "s. scissors\n";
         cin >> choice;
-        cout << "you selected: " << choice << '\n';
     } while (choice != 'r' && choice != 'p' && choice != 's');
 
-    return 0;
+    return choice;
 }
+
 char getComputerChoice()
 {
     return 0;
 }
-void showChoice(char choice) {}
+
+void showChoice(char choice)
+{
+    switch (choice)
+    {
+    case 'r':
+        cout << "rock\n";
+        break;
+    case 'p':
+        cout << "paper\n";
+        break;
+    case 's':
+        cout << "scissors\n";
+        break;
+    }
+}
+
 void chooseWinner(char player, char cpu) {}
 
 // Returns the current year
