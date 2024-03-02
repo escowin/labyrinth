@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cmath>
 #include <ctime>
+#include <iomanip> // contains set precision fx() for floating point numbers
 
 // type def convention ends in `_t`.
 // typedef std::string string_t;
@@ -34,7 +35,9 @@ int main()
     // Terminal prompts
     do
     {
+        cout << "*********************\n";
         cout << "Select a menu option:\n";
+        cout << "*********************\n";
         cout << "1. Show balance\n";
         cout << "2. Deposit money\n";
         cout << "3. Withdraw money\n";
@@ -48,9 +51,13 @@ int main()
             break;
         case 2:
             balance += deposit();
+            showBalance(balance);
+
             break;
         case 3:
             balance -= withdraw(balance);
+            showBalance(balance);
+
             break;
         case 4:
             cout << "Goodbye!\n";
@@ -66,9 +73,55 @@ int main()
     return 0;
 }
 
-void showBalance(double balance){};
-double deposit(){};
-double withdraw(double balance){};
+// Displays current balance value
+void showBalance(double balance)
+{
+    // setprecision() shows up to two values after the decimal point
+    cout << "Your balance is: $" << std::setprecision(2) << std::fixed << balance << "\n\n";
+}
+
+// Captures user input
+double deposit()
+{
+    double amount = 0;
+
+    cout << "Enter deposit amount: ";
+    cin >> amount;
+
+    if (amount > 0)
+    {
+        return amount;
+    }
+    else
+    {
+        cout << "Cannot deposit a negative amount of money.\n";
+        return 0;
+    }
+}
+
+double withdraw(double balance)
+{
+    double amount = 0;
+
+    cout << "Enter withdrawal amount: ";
+    cin >> amount;
+
+    // Safeguards against negative withdrawals & overdrafts
+    if (amount < 0)
+    {
+        cout << "Cannot withdraw a negative amount of money.\n";
+        return 0;
+    }
+    if (amount > balance)
+    {
+        cout << "This bank does not allow overdrafts.\n";
+        return 0;
+    }
+    else
+    {
+        return amount;
+    }
+}
 
 // Returns the current year
 int currentYear()
@@ -86,7 +139,7 @@ int currentYear()
 void terminalStart(string_t subhead)
 {
     int year = currentYear();
-    double ver = 1.17;
+    double ver = 1.18;
     string_t appName = "white-raspberry";
 
     cout << appName << " v" << ver << std::endl;
