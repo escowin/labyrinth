@@ -44,6 +44,10 @@ int main()
         cout << "4. Exit\n";
         cin >> choice;
 
+        // Clears input buffer, which prevents program from breaking if user enters an invalid value
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
         switch (choice)
         {
         case 1:
@@ -139,7 +143,7 @@ int currentYear()
 void terminalStart(string_t subhead)
 {
     int year = currentYear();
-    double ver = 1.18;
+    double ver = 1.19;
     string_t appName = "white-raspberry";
 
     cout << appName << " v" << ver << std::endl;
