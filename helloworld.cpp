@@ -112,7 +112,7 @@ double withdraw(double balance)
         cout << "Cannot withdraw a negative amount of money.\n";
         return 0;
     }
-    if (amount > balance)
+    else if (amount > balance)
     {
         cout << "This bank does not allow overdrafts.\n";
         return 0;
