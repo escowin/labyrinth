@@ -1,4 +1,4 @@
-// Git commands
+// Terminal commands
 // compile  | g++ -o program_name source_file.cpp
 // invoke   | ./program_name.exe
 
@@ -43,6 +43,10 @@ int main()
     cout << "You selected: ";
     showChoice(player);
 
+    cpu = getComputerChoice();
+    cout << "CPU selected: ";
+    showChoice(cpu);
+
     // Terminal fin
     terminalFin(subhead.length());
     return 0;
@@ -68,6 +72,14 @@ char getUserChoice()
 
 char getComputerChoice()
 {
+    srand(time(0));
+    int num = (rand() % 3) + 1;
+
+    switch(num) {
+        case 1: return 'r';
+        case 2: return 'p';
+        case 3: return 's';
+    }
     return 0;
 }
 
