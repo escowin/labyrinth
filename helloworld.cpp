@@ -8,8 +8,7 @@
 #include <ctime>
 #include <iomanip> // contains set precision fx() for floating point numbers
 
-// type def convention ends in `_t`.
-// typedef std::string string_t;
+// Shortcuts to strealine typing
 using string_t = std::string; // more suitable than typedef for templates
 using std::cin;
 using std::cout;
@@ -47,6 +46,8 @@ int main()
     cout << "CPU selected: ";
     showChoice(cpu);
 
+    chooseWinner(player, cpu);
+
     // Terminal fin
     terminalFin(subhead.length());
     return 0;
@@ -75,10 +76,14 @@ char getComputerChoice()
     srand(time(0));
     int num = (rand() % 3) + 1;
 
-    switch(num) {
-        case 1: return 'r';
-        case 2: return 'p';
-        case 3: return 's';
+    switch (num)
+    {
+    case 1:
+        return 'r';
+    case 2:
+        return 'p';
+    case 3:
+        return 's';
     }
     return 0;
 }
@@ -99,7 +104,54 @@ void showChoice(char choice)
     }
 }
 
-void chooseWinner(char player, char cpu) {}
+void chooseWinner(char player, char cpu)
+{
+    switch (player)
+    {
+    case 'r':
+        if (cpu == 'r')
+        {
+            cout << "tied game!\n";
+        }
+        else if (cpu == 'p')
+        {
+            cout << "you lose!\n";
+        }
+        else
+        {
+            cout << "you win!\n";
+        }
+        break;
+    case 'p':
+        if (cpu == 'r')
+        {
+            cout << "you lose!\n";
+        }
+        else if (cpu == 'p')
+        {
+            cout << "tied game!\n";
+        }
+        else
+        {
+            cout << "you lose!\n";
+        }
+        break;
+    case 's':
+        if (cpu == 'r')
+        {
+            cout << "you lose!\n";
+        }
+        else if (cpu == 'p')
+        {
+            cout << "you win!\n";
+        }
+        else
+        {
+            cout << "tied game!\n";
+        }
+        break;
+    }
+}
 
 // Returns the current year
 int currentYear()
