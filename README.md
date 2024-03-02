@@ -3,6 +3,7 @@ C++ playground for a tbd raspberry pi project
 
 ## History
 ### Alpha
+- 0.1.20 | rock-paper-scissors
 - 0.1.19 | banking transactor
 - 0.1.15 | geometry calculator
 - 0.1.14 | number guessing game
